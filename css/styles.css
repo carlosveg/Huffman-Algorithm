@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    /*
+    background: rgb(2, 69, 122);
+    background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 1) 70%, rgba(151, 202, 219, 1) 100%);
+    */
+    /*
+    background: rgb(2, 69, 122);
+    background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 1) 28%, rgba(151, 202, 219, 1) 100%);
+    */
+
+    background: rgb(2, 69, 122);
+    background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 0.9457983022310487) 50%, rgba(151, 202, 219, 1) 100%);
+
+}
+
+.github {
+    margin-right: 0px;
+    padding-right: 0px;
+}
