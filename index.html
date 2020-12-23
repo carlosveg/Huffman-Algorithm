@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Huffman Algorithm</title>
 
-  <!-- Quicksand -->
-  <link rel="stylesheet" href="./assets/css/quicksand.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="./assets/css/all.min.css" />
   <!-- Bootstrap 4.5.x -->
@@ -20,7 +18,7 @@
   <!-- Top Bar -->
   <div class="">
     <nav class="navbar navbar-dark font-weight-bolder d-flex ml-3">
-      <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> Home</a>
+      <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> QHome</a>
       <a class="text-white navbar-brand" href="#"><i class="fab fa-github"></i> Github</a>
     </nav>
   </div>
@@ -28,18 +26,18 @@
   <!-- Container to render the graph -->
   <div class="container">
     <div class="text-center">
-      <input class="form-control" id="input" type="text" placeholder="Example: fffeedasgd">
+      <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
       <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
     </div>
-    <div class="table-responsive mt-1">
+    <div class="table mt-1">
       <table class="table">
         <thead class="thead-dark">
-          <tr>
-            <th scope="col">Letter</th>
-            <th scope="col">#</th>
+          <tr id="thead">
           </tr>
         </thead>
-        <tbody class="text-white" id="tbody">
+        <tbody class="table-secondary">
+          <tr id="tbody">
+          </tr>
         </tbody>
       </table>
     </div>
@@ -50,10 +48,11 @@
   <!-- jQuery y Bootstrap for animations -->
   <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
   <!--<script src="./assets/js/bootstrap.bundle.min.js"></script>-->
-  <!-- Animations -->
-  <!--<script src="./js/madeVector.js"></script>-->
+  <!-- Input Validation -->
+
   <!-- Huffman Module -->
   <script src="./js/moduleHuffman.js"></script>
+  <script src="./js/inputValidation.js"></script>
 
 </body>
 

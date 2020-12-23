@@ -1,5 +1,6 @@
 const btnRun = document.getElementById('btnRun');
 const tbody = document.getElementById('tbody');
+const thead = document.getElementById('thead');
 
 /* Function To Get Frequency */
 const lettersFrequency = btnRun.addEventListener('click', () => {
@@ -23,12 +24,15 @@ const lettersFrequency = btnRun.addEventListener('click', () => {
 /* Inject HTML */
 /* Creating Frequency Table */
 const table = (lettersFrequency) => {
-    let html = '';
+    let head = '';
+    let body = '';
+
     for (const letter in lettersFrequency) {
-        html += `<tr><th>${letter}</th><td>${lettersFrequency[letter]}</td></tr>`;
+        head += `<th>${letter}</th>`;
+        body += `<td>${lettersFrequency[letter]}</td>`;
         //html = html.concat(`<tr><th>${letter}</th><td>${lettersFrequency[letter]}</td></tr>`);
     };
 
-    tbody.innerHTML = html;
-    console.log(html);
+    thead.innerHTML = head;
+    tbody.innerHTML = body;
 };

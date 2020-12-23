@@ -5,6 +5,11 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/Quicksand/Quicksand-VariableFont_wght.ttf');
+}
+
 body {
     /*
     background: rgb(2, 69, 122);
@@ -20,7 +25,21 @@ body {
 
 }
 
-.github {
-    margin-right: 0px;
-    padding-right: 0px;
+.input {
+    width: 100%;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+}
+
+.valid_input {
+    border: 3px solid #1ed12d;
+    opacity: 1;
+}
+
+.invalid_input {
+    border: 3px solid #bb2929;
 }
