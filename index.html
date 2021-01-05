@@ -10,49 +10,60 @@
   <link rel="stylesheet" href="./assets/css/all.min.css" />
   <!-- Bootstrap 4.5.x -->
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="./assets/css/normalize.css" />
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
   <!-- Top Bar -->
-  <div class="">
+  <div class="container">
     <nav class="navbar navbar-dark font-weight-bolder d-flex ml-3">
       <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> QHome</a>
       <a class="text-white navbar-brand" href="#"><i class="fab fa-github"></i> Github</a>
     </nav>
+
+    <!-- Form and Frequency Table -->
+    <section>
+      <div class="text-center">
+        <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
+        <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
+      </div>
+      <div class="table mt-1">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr id="thead">
+            </tr>
+          </thead>
+          <tbody class="table-secondary">
+            <tr id="tbody">
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Container to render the graph -->
+    <div class="bg-light c-animation" id="mynetwork">
+    </div>
+
+    <!-- Footer to display data of creators -->
+    <footer class="bg-secondary mt-2">
+      <h5>Footer</h5>
+    </footer>
   </div>
 
-  <!-- Container to render the graph -->
-  <div class="container">
-    <div class="text-center">
-      <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
-      <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
-    </div>
-    <div class="table mt-1">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr id="thead">
-          </tr>
-        </thead>
-        <tbody class="table-secondary">
-          <tr id="tbody">
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Cytoscape JS -->
-  <script src="./assets/js/cytoscape.min.js"></script>
+  <!-- Vis JS -->
+  <script src="./assets/js/vis-network.min.js"></script>
   <!-- jQuery and Bootstrap for animations -->
   <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
   <!--<script src="./assets/js/bootstrap.bundle.min.js"></script>-->
-  <!-- Input Validation -->
-
-  <!-- Huffman Module -->
+  <!-- Custom Scripts -->
   <script src="./js/moduleHuffman.js"></script>
   <script src="./js/inputValidation.js"></script>
+  <script src="./js/visAnimation.js"></script>
+  <script src="./js/main.js"></script>
 
 </body>
 
