@@ -1,7 +1,7 @@
 class Node {
-    constructor(frequency) {
+    constructor() {
         this.key = '';
-        this.frequency = frequency;
+        this.frequency = 0;
         this.left = null;
         this.right = null;
     }
