@@ -1,6 +1,3 @@
-const tbody = document.getElementById('tbody');
-const thead = document.getElementById('thead');
-
 /* Function To Get Frequency */
 const frequency = () => {
     const chain = document.getElementById('input').value;
@@ -23,6 +20,8 @@ const frequency = () => {
     we will add one more column that will be represent the encoding of each item
 */
 const table = (lettersFrequency) => {
+    let tbody = document.getElementById('tbody');
+    let thead = document.getElementById('thead');
     let head = '';
     let body = '';
 
