@@ -4,5 +4,6 @@ class Node {
         this.frequency = 0;
         this.left = null;
         this.right = null;
+        this.index = 0;
     }
 }

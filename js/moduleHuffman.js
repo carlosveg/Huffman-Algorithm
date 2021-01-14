@@ -13,30 +13,55 @@ const frequency = () => {
     return freq;
 }
 
+var encodingTable = {};
+var generateEncoding = (tree, code = "") => {
+    if (tree.left === null && tree.right === null) encodingTable[tree.key] = code;
+    else {
+        generateEncoding(tree.left, code + "0");
+        generateEncoding(tree.right, code + "1");
+    }
+};
+
 /* Inject HTML */
 /* Creating Frequency Table */
-
-/*
-    we will add one more column that will be represent the encoding of each item
-*/
-const table = (lettersFrequency) => {
-    let tbody = document.getElementById('tbody');
-    let thead = document.getElementById('thead');
-    let head = '';
+const table = (frequency, encoding) => {
+    const tbody = document.getElementById('tbody');
+    let letter = '';
     let body = '';
 
-    for (let letter in lettersFrequency) {
-        head += `<th>${letter}</th>`;
-        body += `<td>${lettersFrequency[letter]}</td>`;
+    for (let key in frequency) {
+        body += `<tr><th>${key}</th>`;
+        for (let code in encoding) {
+            if (key == code) {
+                body += `<td>${frequency[key]}</td><td>${encoding[code]}</td>`;
+            }
+        }
+        body += `</tr>`;
     };
 
-    thead.innerHTML = head;
     tbody.innerHTML = body;
 };
 
+const generateEncodedString = () => {
+    const input = document.getElementById("input").value;
+    let encodedString = "";
+
+    for (let i = 0; i < input.length; i++) {
+        encodedString += "" + encodingTable[input[i]];
+    }
+
+    return encodedString;
+};
+
 /* This function executes all the functions that will be called from main.js */
-const createAll = () => {
+const createAll = async () => {
     const freq = frequency();
-    table(sorted(freq));
-    generateHuffmanTree(generateList(freq));
+    const list = await generateList(freq);
+    const tree = await generateHuffmanTree(list);
+    const dataAnimation = getDataAnimation(tree);
+
+    generateEncoding(tree);
+    table(await sortedKeys(freq), await sortedKeys(encodingTable));
+    generateEncodedString();
+    formatingDataAnimation(dataAnimation);
 };

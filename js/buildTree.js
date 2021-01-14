@@ -1,6 +1,5 @@
-const sorted = (param) => {
-    //let len = (params) => {let c=0; for (let key in params) c++; return c;}
-    let array = Object.entries(param);
+const sorted = (objectFrecuencies) => {
+    let array = Object.entries(objectFrecuencies);
     let aux;
 
     for (let i = 0; i < array.length; i++) {
@@ -16,9 +15,26 @@ const sorted = (param) => {
     return Object.fromEntries(array);
 };
 
-const generateList = (param) => {
+const sortedKeys = (objectFrecuencies) => {
+    let array = Object.entries(objectFrecuencies);
+    let aux;
+
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            if (array[i][0] < array[j][0]) {
+                aux = array[i];
+                array[i] = array[j];
+                array[j] = aux;
+            }
+        }
+    }
+
+    return Object.fromEntries(array);
+};
+
+const generateList = (objectFrecuencies) => {
     let node_list = [];
-    let sortedList = sorted(param);
+    let sortedList = sorted(objectFrecuencies);
 
     for (let key in sortedList) {
         let node = new Node();
@@ -41,8 +57,11 @@ const generateHuffmanTree = (nodeList) => {
         node.left = arrayAux[0];
         node.right = arrayAux[1];
         nodeList.splice(0, 0, node);
-        
+
         nodeList = nodeList.sort((a, b) => a.frequency - b.frequency);
     }
-    console.log(nodeList);
+
+    console.log(nodeList[0]);
+
+    return nodeList.pop();
 };

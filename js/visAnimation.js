@@ -59,6 +59,7 @@ var nodes = new vis.DataSet([
     nodes: nodes,
     edges: edges
   };
+  
   var options = {
     nodes: {
       // margin: 110,
