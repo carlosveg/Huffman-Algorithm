@@ -6,7 +6,7 @@ const getDataAnimation = (tree) => {
 
     tree.index = index;
     index += 1;
-    nodes.push(tree.frequency);
+    nodes.push((tree.frequency).toString());
     nodesTovisit.push(tree);
 
     while (nodesTovisit.length > 0) {
@@ -35,7 +35,10 @@ const getDataAnimation = (tree) => {
 
 const formatingDataAnimation = (dataAnimation) => {
     let [edges, nodes] = dataAnimation;
+    var nodesAnimation = new vis.DataSet();
     
+    var edgesAnimation = new vis.DataSet();
+
     console.log("Edges", edges);
-    console.log("Nodes", nodes);
+    console.log("Nodes", Object.entries(nodes));
 };
