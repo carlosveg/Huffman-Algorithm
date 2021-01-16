@@ -59,9 +59,10 @@ const createAll = async () => {
     const list = await generateList(freq);
     const tree = await generateHuffmanTree(list);
     const dataAnimation = getDataAnimation(tree);
+    const data = formatingDataAnimation(dataAnimation);
 
     generateEncoding(tree);
     table(await sortedKeys(freq), await sortedKeys(encodingTable));
     generateEncodedString();
-    formatingDataAnimation(dataAnimation);
+    setDataAnimation(data);
 };
