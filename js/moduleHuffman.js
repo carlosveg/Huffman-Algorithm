@@ -65,4 +65,6 @@ const createAll = async () => {
     table(await sortedKeys(freq), await sortedKeys(encodingTable));
     generateEncodedString();
     setDataAnimation(data);
+
+    setLevel(tree, dataAnimation);
 };

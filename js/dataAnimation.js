@@ -56,5 +56,32 @@ const formatingDataAnimation = (dataAnimation) => {
             edgesProcessed.push(edge);
     }
 
-    return { nodesProcessed, edgesProcessed };
+    var myJSON = JSON.stringify(nodesProcessed);
+    var myJSON2 = JSON.stringify(edgesProcessed);
+
+    console.log(myJSON);
+    //console.log(edgesProcessed);
+
+    return { myJSON, myJSON2 };
+};
+
+const getLevels = (node, index, level) => {
+    if (node.left === null && node.right === null) return ;
+    else if (node.index === index) return level;
+    else {
+        getLevels(node.left, index, level + 1);
+        getLevels(node.right, index, level + 1);
+    }
+};
+
+const setLevel = (tree, data) => {
+    let levels = [];
+    let { rawNodes } = data;
+
+    for (let i = 0; i < rawNodes.length; i++) {
+        levels.push(getLevels(tree, i, 0));
+    }
+    console.log(rawNodes);
+
+    console.log(levels);
 };

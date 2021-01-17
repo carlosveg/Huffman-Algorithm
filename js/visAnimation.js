@@ -1,10 +1,7 @@
 const setDataAnimation = (param) => {
-  let { nodesProcessed, edgesProcessed } = param;
+  let { myJSON, myJSON2 } = param;
   let nodes = new vis.DataSet();
   let edges = new vis.DataSet();
-
-  console.log(nodesProcessed);
-  console.log(edgesProcessed);
 
   var nodes2 = [
     { id: 0, label: "10" },
@@ -34,8 +31,8 @@ const setDataAnimation = (param) => {
     { from: 6, to: 10 }
   ];
 
-  nodes.add(nodesProcessed);
-  edges.add(edgesProcessed);
+  nodes.add(myJSON);
+  edges.add(myJSON2);
 
   // create a network
   let container = document.getElementById('mynetwork');
@@ -74,7 +71,7 @@ const setDataAnimation = (param) => {
         edgeMinimization: true,
         parentCentralization: true,
         direction: 'UD', // UD, DU, LR, RL
-        sortMethod: 'hubsize' // hubsize, directed
+        sortMethod: 'directed' // hubsize, directed
       }
     }
   };
