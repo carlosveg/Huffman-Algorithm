@@ -1,5 +1,5 @@
 const setDataAnimation = (param) => {
-  let { myJSON, myJSON2 } = param;
+  let { nodesProcessed, edgesProcessed } = param;
   let nodes = new vis.DataSet();
   let edges = new vis.DataSet();
 
@@ -19,20 +19,20 @@ const setDataAnimation = (param) => {
 
   // create an array with edges
   var edges2 = [
-    { from: 0, to: 1 },
-    { from: 0, to: 2 },
-    { from: 1, to: 3 },
-    { from: 1, to: 4 },
-    { from: 2, to: 5 },
-    { from: 2, to: 6 },
-    { from: 3, to: 7 },
-    { from: 3, to: 8 },
-    { from: 6, to: 9 },
-    { from: 6, to: 10 }
+    { from: 0, to: 1, id: "b19dd139-b6e4-4fc1-b81d-bae941c5c4b0" },
+    { from: 0, to: 2, id: "e460a7d4-5214-4c9c-97c8-fb26784cc5fd" },
+    { from: 1, to: 3, id: "c80bab71-79c0-4caf-82af-9f493156cd8b" },
+    { from: 1, to: 4, id: "87df0eae-f57b-4a41-886f-d95578ec1dd8" },
+    { from: 2, to: 5, id: "255c1d4e-30f9-4736-ad75-c49bb3ae6d93" },
+    { from: 2, to: 6, id: "51d8c219-ee59-4358-9b0d-f6609b11860e" },
+    { from: 3, to: 7, id: "856a8ec2-0125-4ddc-a6cc-cc5532bcd42f" },
+    { from: 3, to: 8, id: "adb2362a-19cf-4b91-bd16-158e2a9880b9" },
+    { from: 6, to: 9, id: "b9e5cdba-bd2b-478a-b7d9-6a208ad8b63d" },
+    { from: 6, to: 10, id: "b3d2336f-542a-4f28-8302-57b31bbcf93f" }
   ];
 
-  nodes.add(myJSON);
-  edges.add(myJSON2);
+  nodes.add(nodesProcessed);
+  edges.add(edgesProcessed);
 
   // create a network
   let container = document.getElementById('mynetwork');
@@ -47,20 +47,20 @@ const setDataAnimation = (param) => {
       fixed: false,
       font: '12px arial red',
       scaling: {
-        label: true
+        label: false
       },
       shadow: true
     },
     edges: {
       color: 'red',
       scaling: {
-        label: true,
+        label: false,
       },
       shadow: true,
       smooth: true,
     },
     layout: {
-      randomSeed: undefined,
+      //randomSeed: undefined,
       improvedLayout: false,
       hierarchical: {
         enabled: true,

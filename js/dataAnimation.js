@@ -30,58 +30,64 @@ const getDataAnimation = (tree) => {
         }
     }
 
-    return { rawEdges, rawNodes };
+    return {
+        rawEdges,
+        rawNodes
+    };
 };
 
-const formatingDataAnimation = (dataAnimation) => {
-    let { rawEdges, rawNodes } = dataAnimation;
-    let nodesProcessed = [];
-    let edgesProcessed = [];
-
-    for (const id in rawNodes) {
-        let node = new Object();
-
-        node.id = id;
-        node.label = rawNodes[id];
-
-        nodesProcessed.push(node);
-    }
-
-    for (let i = 0; i < rawEdges.length; i++) {
-            let edge = new Object();
-
-            edge.from = rawEdges[i][0];
-            edge.to = rawEdges[i][1];
-
-            edgesProcessed.push(edge);
-    }
-
-    var myJSON = JSON.stringify(nodesProcessed);
-    var myJSON2 = JSON.stringify(edgesProcessed);
-
-    console.log(myJSON);
-    //console.log(edgesProcessed);
-
-    return { myJSON, myJSON2 };
-};
-
+var levels = [];
 const getLevels = (node, index, level) => {
-    if (node.left === null && node.right === null) return ;
-    else if (node.index === index) return level;
-    else {
+    if (node !== null) {
+        if (node.index === index) levels.push(level);
         getLevels(node.left, index, level + 1);
         getLevels(node.right, index, level + 1);
     }
 };
 
 const setLevel = (tree, data) => {
-    let levels = [];
-    let { rawNodes } = data;
+    let {
+        rawNodes
+    } = data;
 
-    for (let i = 0; i < rawNodes.length; i++) {
-        levels.push(getLevels(tree, i, 0));
+    console.log();
+    for (let i = 0; i < rawNodes.length; i++) getLevels(tree, i, 0);
+
+    console.log("Levels:", levels);
+};
+
+const formatingDataAnimation = (dataAnimation) => {
+    let {
+        rawEdges,
+        rawNodes
+    } = dataAnimation;
+    let nodesProcessed = [];
+    let edgesProcessed = [];
+    let i = 0;
+
+    //console.log(rawEdges);
+
+    for (const id in rawNodes) {
+        let node = new Object();
+
+        node.id = id;
+        node.label = rawNodes[id];
+        node.level = levels[i++];
+
+        nodesProcessed.push(node);
     }
-    console.log(rawNodes);
 
-    console.log(levels);
+    for (let i = 0; i < rawEdges.length; i++) {
+        let edge = new Object();
+
+        edge.from = rawEdges[i][0];
+        edge.to = rawEdges[i][1];
+
+        edgesProcessed.push(edge);
+    }
+
+    console.log(nodesProcessed);
+    //console.log(edgesProcessed);
+
+    return { nodesProcessed, edgesProcessed };
 };

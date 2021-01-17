@@ -1,6 +1,6 @@
 const input = document.getElementById('input');
 const regex = {
-    chain: /^[a-zA-Z]{4,10}$/
+    chain: /^[a-zA-Z]{4,30}$/
 };
 
 const validarInput = (e) => {

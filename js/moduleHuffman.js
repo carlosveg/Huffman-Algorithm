@@ -14,7 +14,7 @@ const frequency = () => {
 }
 
 var encodingTable = {};
-var generateEncoding = (tree, code = "") => {
+const generateEncoding = (tree, code = "") => {
     if (tree.left === null && tree.right === null) encodingTable[tree.key] = code;
     else {
         generateEncoding(tree.left, code + "0");
@@ -55,16 +55,15 @@ const generateEncodedString = () => {
 
 /* This function executes all the functions that will be called from main.js */
 const createAll = async () => {
-    const freq = frequency();
-    const list = await generateList(freq);
+    const freq = await frequency();
+    const list = generateList(freq);
     const tree = await generateHuffmanTree(list);
     const dataAnimation = getDataAnimation(tree);
+    setLevel(tree, dataAnimation);
     const data = formatingDataAnimation(dataAnimation);
 
     generateEncoding(tree);
     table(await sortedKeys(freq), await sortedKeys(encodingTable));
     generateEncodedString();
     setDataAnimation(data);
-
-    setLevel(tree, dataAnimation);
 };
