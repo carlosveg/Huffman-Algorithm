@@ -1,8 +1,8 @@
 /* Function To Get Frequency */
 const frequency = () => {
     const chain = document.getElementById('input').value;
-    const lowered = chain.toLowerCase();
-    const splitted = lowered.split('');
+    //const lowered = chain.toLowerCase();
+    const splitted = chain.split('');
 
     const freq = splitted.reduce((count, el) => {
         count[el] = (count[el] || 0) + 1;
@@ -26,7 +26,6 @@ const generateEncoding = (tree, code = "") => {
 /* Creating Frequency Table */
 const table = (frequency, encoding) => {
     const tbody = document.getElementById('tbody');
-    let letter = '';
     let body = '';
 
     for (let key in frequency) {
@@ -50,6 +49,7 @@ const generateEncodedString = () => {
         encodedString += "" + encodingTable[input[i]];
     }
 
+    console.log(encodedString);
     return encodedString;
 };
 

@@ -61,7 +61,7 @@ const generateHuffmanTree = (nodeList) => {
         nodeList = nodeList.sort((a, b) => a.frequency - b.frequency);
     }
 
-    //console.log(nodeList[0]);
+    console.log(nodeList[0]);
 
     return nodeList.pop();
 };

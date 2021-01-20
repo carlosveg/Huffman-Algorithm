@@ -30,10 +30,7 @@ const getDataAnimation = (tree) => {
         }
     }
 
-    return {
-        rawEdges,
-        rawNodes
-    };
+    return { rawEdges, rawNodes };
 };
 
 var levels = [];
@@ -46,21 +43,15 @@ const getLevels = (node, index, level) => {
 };
 
 const setLevel = (tree, data) => {
-    let {
-        rawNodes
-    } = data;
+    let { rawNodes } = data;
 
-    console.log();
     for (let i = 0; i < rawNodes.length; i++) getLevels(tree, i, 0);
 
     console.log("Levels:", levels);
 };
 
 const formatingDataAnimation = (dataAnimation) => {
-    let {
-        rawEdges,
-        rawNodes
-    } = dataAnimation;
+    let { rawEdges, rawNodes } = dataAnimation;
     let nodesProcessed = [];
     let edgesProcessed = [];
     let i = 0;
@@ -87,7 +78,7 @@ const formatingDataAnimation = (dataAnimation) => {
     }
 
     console.log(nodesProcessed);
-    //console.log(edgesProcessed);
+    console.log(edgesProcessed);
 
     return { nodesProcessed, edgesProcessed };
 };
