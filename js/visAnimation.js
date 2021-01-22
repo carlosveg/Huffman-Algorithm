@@ -33,9 +33,9 @@ const setDataAnimation = (param) => {
       improvedLayout: false,
       hierarchical: {
         enabled: true,
-        levelSeparation: 75,
+        levelSeparation: 150,
         nodeSpacing: 100,
-        treeSpacing: 100,
+        treeSpacing: 200,
         blockShifting: true,
         edgeMinimization: true,
         parentCentralization: true,

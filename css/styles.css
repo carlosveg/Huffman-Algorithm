@@ -8,20 +8,42 @@
 }
 
 body {
-    /*
-    background: rgb(2, 69, 122);
-    background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 1) 70%, rgba(151, 202, 219, 1) 100%);
-    */
-    /*
-    background: rgb(2, 69, 122);
-    background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 1) 28%, rgba(151, 202, 219, 1) 100%);
-    */
-
     background: rgb(2, 69, 122);
     background: linear-gradient(90deg, rgba(2, 69, 122, 1) 0%, rgba(1, 138, 190, 0.9457983022310487) 50%, rgba(151, 202, 219, 1) 100%);
-
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navigation {
+    font-size: 4rem;
+    color: #000;
+}
+
+/* Showcase */
+.showcase {
+    height: 15rem;
+    background: url("../assets/img/clouds.png") no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.blurred_text {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 1rem;
+    color: #fff;
+}
+
+/* Input */
 .input {
     width: 60%;
     background: #fff;
@@ -41,14 +63,49 @@ body {
     border: 3px solid #bb2929;
 }
 
-.c-animation {
-    width: 100%;
-    height: 35rem;
-    border-radius: 5px;
+/* display */
+.display_none {
+    display: none;
+}
+
+.display_true {
+    display: block;
+}
+
+/* Table container */
+.card {
     background-color: transparent;
+    border: none;
+    padding: none;
+}
+
+.container-table {
+    justify-content: center;
+}
+
+/* Graph container */
+.container-graph {
+    width: 100%;
+    height: 40rem;
+    border-radius: 5px;
+    /* background-color: transparent; */
     /* display: none; */
 }
 
-.puto {
-    border-radius: 5px;
+@media (max-width: 500px) {
+    .showcase {
+        height: 19rem;
+    }
+    .history {
+        width: 90%;
+    }
 }
+
+/* @media (max-width: 800px) {
+    .showcase {
+        height: 16rem;
+    }
+    .history {
+        width: 90%;
+    }
+} */

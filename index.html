@@ -17,49 +17,114 @@
 </head>
 
 <body>
-  <div class="container">
+  <!-- Showcase -->
+  <header class="showcase">
     <!-- Top/Nav Bar -->
-    <nav class="navbar navbar-dark font-weight-bolder d-flex ml-3">
-      <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> QHome</a>
-      <a class="text-white navbar-brand" href="#"><i class="fab fa-github"></i> Github</a>
-    </nav>
-
-    <!-- Form and Frequency Table -->
-    <section>
-      <div class="text-center">
-        <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
-        <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
-      </div>
-      <div class="table table-sm mt-1 puto">
-        <table class="table text-center">
-          <thead class="thead-dark">
-            <tr>
-              <th>Letter</th>
-              <th>Frequency</th>
-              <th>Code</th>
-            </tr>
-          </thead>
-          <tbody class="table-secondary" id="tbody">
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Container to render the graph -->
-    <div class="bg-light c-animation" id="mynetwork">
+    <div class="container">
+      <nav class="navigation navbar font-weight-bolder d-flex ml-3">
+        <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> QInicio</a>
+        <a class="navbar-brand" href="#"><i class="fab fa-github"></i> Github</a>
+      </nav>
     </div>
 
-    <!-- Footer to display data of creators -->
-    <footer class="bg-secondary mt-2">
-      <h5>Footer</h5>
-    </footer>
-  </div>
+    <div class="blurred_text">
+      <b>
+        <h2>Algoritmo de Huffman</h2>
+        <p>
+          Instituto Politecnico Nacional - Analisis de Algoritmos - 3CM3<br>
+          <!-- Linkeamos dentro de la misma pagina -->
+          <a class="text-white navbar-brand  mt-2 btn btn-dark" href="#graph">Ir a simulador
+            <i class="fas fa-angle-double-right"></i>
+          </a>
+        </p>
+      </b>
+    </div>
+  </header>
+
+  <section>
+    <div class="container blurred_text history mb-3">
+      <div class="card">
+        <div class="card-header">
+          <h2><b>Historia</b></h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">En ciencias de la computacion y teoria de la informacion, la codificacion de Huffman es
+            un algoritmo usado para la compresion de datos. El termino se refiere al uso de una tabla de codigos de
+            longitud variable para codificar un determinado simbolo (como puede ser un caracter en un archivo), donde la
+            tabla ha sido rellenada de una manera especifica basandose en la probabilidad estimada de aparicion de cada
+            posible valor de dicho simbolo. <br>
+            <b>Fue desarrollado por David A. Huffman mientras era estudiante de doctorado en MIT, y publicado en "A
+              methods for the Construccion of Minium-Redudancy Codes".</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <!-- Form and Frequency Table -->
+      <section class="main-container">
+        <a name="graph"></a>
+        <div class="text-center">
+          <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
+          <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
+        </div>
+        <div class="container-table row row-cols-md-2 display_none" id="display_table">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <div class="table table-sm mt-1">
+                  <table class="table table-striped text-center">
+                    <thead class="bg-primary thead-dark">
+                      <tr>
+                        <th>Letter</th>
+                        <th>Frequency</th>
+                        <th>Code</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-secondary" id="tbody">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Container to render the graph -->
+      <div class="container-graph bg-light display_none" id="mynetwork"></div>
+    </div>
+  </main>
+
+  <!-- Footer to display data of creators -->
+  <footer class="blurred_text mt-3">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-md-2">
+          ESCOM-IPN-MX
+        </div>
+        <div class="col-md-auto">
+          Vazquez Villeda Juan Alberto
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="col col-auto">
+          Vega Gloria Carlos Raymundo
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-facebook-f"></i>
+          <!-- <i class="fab fa-linkedin-in"></i> -->
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Vis JS -->
   <script src="./assets/js/vis-network.min.js"></script>
   <!-- jQuery and Bootstrap for animations -->
   <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
   <!--<script src="./assets/js/bootstrap.bundle.min.js"></script>-->
+  <!-- Scroll Reveal -->
+  <script src="./assets/js/scrollreveal.min.js"></script>
   <!-- Custom Scripts -->
   <script src="./js/node.js"></script>
   <script src="./js/buildTree.js"></script>

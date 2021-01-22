@@ -18,19 +18,25 @@ const getDataAnimation = (tree) => {
             leftChild.index = index;
             index += 1;
             rawEdges.push([visitedNode[0].index, leftChild.index]);
-            rawNodes.push((leftChild.frequency).toString() + " " + (leftChild.key).toString());
+            if (leftChild.left !== null) rawNodes.push((leftChild.frequency).toString() + " " + (leftChild.key).toString());
+            else rawNodes.push((leftChild.frequency).toString() + " '" + (leftChild.key).toString() + "'");
             nodesTovisit.push(leftChild);
         }
         if (rightChild !== null) {
             rightChild.index = index;
             index += 1;
             rawEdges.push([visitedNode[0].index, rightChild.index]);
-            rawNodes.push((rightChild.frequency).toString() + " " + (rightChild.key).toString());
+            if (rightChild.left !== null) rawNodes.push((rightChild.frequency).toString() + " " + (rightChild.key).toString());
+            else rawNodes.push((rightChild.frequency).toString() + " '" + (rightChild.key).toString() + "'");
             nodesTovisit.push(rightChild);
         }
     }
 
-    return { rawEdges, rawNodes };
+    console.log(rawNodes);
+    return {
+        rawEdges,
+        rawNodes
+    };
 };
 
 var levels = [];
@@ -43,20 +49,21 @@ const getLevels = (node, index, level) => {
 };
 
 const setLevel = (tree, data) => {
-    let { rawNodes } = data;
+    let {
+        rawNodes
+    } = data;
 
     for (let i = 0; i < rawNodes.length; i++) getLevels(tree, i, 0);
-
-    console.log("Levels:", levels);
 };
 
 const formatingDataAnimation = (dataAnimation) => {
-    let { rawEdges, rawNodes } = dataAnimation;
+    let {
+        rawEdges,
+        rawNodes
+    } = dataAnimation;
     let nodesProcessed = [];
     let edgesProcessed = [];
     let i = 0;
-
-    //console.log(rawEdges);
 
     for (const id in rawNodes) {
         let node = new Object();
@@ -77,8 +84,8 @@ const formatingDataAnimation = (dataAnimation) => {
         edgesProcessed.push(edge);
     }
 
-    console.log(nodesProcessed);
-    console.log(edgesProcessed);
-
-    return { nodesProcessed, edgesProcessed };
+    return {
+        nodesProcessed,
+        edgesProcessed
+    };
 };

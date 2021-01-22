@@ -48,9 +48,13 @@ const generateEncodedString = () => {
     for (let i = 0; i < input.length; i++) {
         encodedString += "" + encodingTable[input[i]];
     }
-
-    console.log(encodedString);
+    
     return encodedString;
+};
+
+const display_elements = () => {
+    document.getElementById("display_table").classList.remove('display_none');
+    document.getElementById("mynetwork").classList.remove('display_none');
 };
 
 /* This function executes all the functions that will be called from main.js */
@@ -61,6 +65,8 @@ const createAll = async () => {
     const dataAnimation = getDataAnimation(tree);
     setLevel(tree, dataAnimation);
     const data = formatingDataAnimation(dataAnimation);
+
+    display_elements();
 
     generateEncoding(tree);
     table(await sortedKeys(freq), await sortedKeys(encodingTable));
