@@ -34,7 +34,7 @@ const setDataAnimation = (param) => {
       hierarchical: {
         enabled: true,
         levelSeparation: 150,
-        nodeSpacing: 100,
+        nodeSpacing: 150,
         treeSpacing: 200,
         blockShifting: true,
         edgeMinimization: true,
@@ -42,6 +42,15 @@ const setDataAnimation = (param) => {
         direction: 'UD', // UD, DU, LR, RL
         sortMethod: 'directed' // hubsize, directed
       }
+    },
+    interaction: {
+      dragNodes: false,
+      dragView: true,
+      hover: true,
+      hoverConnectedEdges: true,
+      selectConnectedEdges: true,
+      tooltipDelay: 300,
+      zoomSpeed: 1,
     }
   };
 

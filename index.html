@@ -22,7 +22,7 @@
     <!-- Top/Nav Bar -->
     <div class="container">
       <nav class="navigation navbar font-weight-bolder d-flex ml-3">
-        <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> QInicio</a>
+        <a class="navbar-brand" href="#"> <i class="fas fa-home"></i> Inicio</a>
         <a class="navbar-brand" href="#"><i class="fab fa-github"></i> Github</a>
       </nav>
     </div>
@@ -42,19 +42,51 @@
   </header>
 
   <section>
-    <div class="container blurred_text history mb-3">
+    <div class="container blurred_card history mb-3">
       <div class="card">
         <div class="card-header">
-          <h2><b>Historia</b></h2>
+          <h2><b>Un poco de Historia</b></h2>
         </div>
         <div class="card-body">
-          <p class="card-text">En ciencias de la computacion y teoria de la informacion, la codificacion de Huffman es
+          <p class="card-text">
+            <b>Fue desarrollado por David A. Huffman mientras era estudiante de doctorado en MIT, y publicado en "A
+              methods for the Construccion of Minium-Redudancy Codes".
+            </b> <br>
+            En ciencias de la computacion y teoria de la informacion, la codificacion de Huffman es
             un algoritmo usado para la compresion de datos. El termino se refiere al uso de una tabla de codigos de
             longitud variable para codificar un determinado simbolo (como puede ser un caracter en un archivo), donde la
             tabla ha sido rellenada de una manera especifica basandose en la probabilidad estimada de aparicion de cada
-            posible valor de dicho simbolo. <br>
-            <b>Fue desarrollado por David A. Huffman mientras era estudiante de doctorado en MIT, y publicado en "A
-              methods for the Construccion of Minium-Redudancy Codes".</b>
+            posible valor de dicho simbolo.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container blurred_card history mb-3">
+      <div class="card">
+        <div class="card-header">
+          <h2><b>Breve explicacion sobre el proceso para generar el arbol</b></h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Para realizar la codificación Huffman, se debe realizar primero un ordenamiento de los símbolos en orden
+            creciente según sus probabilidades. Los dos símbolos menos probables se agrupan en un pseudo-símbolo cuya
+            probabilidad es la suma de las probabilidades de los símbolos fusionados. Los restantes símbolos son
+            nuevamente ordenados en función de sus probabilidades, combinando los dos menos probables y sumando sus
+            probabilidades en uno nuevo reiteradamente, hasta quedarnos con un solo elemento que sera la raiz del arbol.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container blurred_card history mb-3">
+      <div class="card">
+        <div class="card-header">
+          <h2><b>Algunas aplicaciones</b></h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Huffman se usa ampliamente en todos los formatos de compresión principales que puede encontrar, desde GZIP,
+            PKZIP (winzip, etc.) y BZIP2, hasta formatos de imagen como JPEG y PNG.
+          </p>
         </div>
       </div>
     </div>
@@ -66,25 +98,46 @@
       <section class="main-container">
         <a name="graph"></a>
         <div class="text-center">
-          <input class="input" id="input" type="text" placeholder="Example: fffeedasgd">
+          <input class="input" id="input" type="text" placeholder="Ejemplo: Este es un texto de prueba.">
           <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
+          <p class="warning_text display_none" id="validated_text">Texto con longitud 4-100</p>
         </div>
-        <div class="container-table row row-cols-md-2 display_none" id="display_table">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <div class="table table-sm mt-1">
-                  <table class="table table-striped text-center">
-                    <thead class="bg-primary thead-dark">
-                      <tr>
-                        <th>Letter</th>
-                        <th>Frequency</th>
-                        <th>Code</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-secondary" id="tbody">
-                    </tbody>
-                  </table>
+        <div class="display_none" id="display_data">
+          <div class="container-table row row-cols-md-2">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table table-sm mt-1">
+                    <table class="table table-striped text-center">
+                      <thead class="bg-primary thead-dark">
+                        <tr>
+                          <th>Letter</th>
+                          <th>Frequency</th>
+                          <th>Code</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-secondary" id="tbody">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row blurred_card mb-5">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5>Texto Ingresado</h5>
+                  <p class="card-text" id="original_text"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5>Texto Codificado</h5>
+                  <p class="card-text" id="encoded_text"></p>
                 </div>
               </div>
             </div>
@@ -122,7 +175,6 @@
   <script src="./assets/js/vis-network.min.js"></script>
   <!-- jQuery and Bootstrap for animations -->
   <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
-  <!--<script src="./assets/js/bootstrap.bundle.min.js"></script>-->
   <!-- Scroll Reveal -->
   <script src="./assets/js/scrollreveal.min.js"></script>
   <!-- Custom Scripts -->

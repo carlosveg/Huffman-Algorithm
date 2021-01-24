@@ -52,8 +52,17 @@ const generateEncodedString = () => {
     return encodedString;
 };
 
+const displayEncoded = (encodedString) => {
+    const input = document.getElementById("input").value;
+    const original_text = document.getElementById('original_text');
+    const encoded_text = document.getElementById('encoded_text');
+
+    original_text.innerHTML = input;
+    encoded_text.innerHTML = encodedString;
+};
+
 const display_elements = () => {
-    document.getElementById("display_table").classList.remove('display_none');
+    document.getElementById("display_data").classList.remove('display_none');
     document.getElementById("mynetwork").classList.remove('display_none');
 };
 
@@ -66,10 +75,10 @@ const createAll = async () => {
     setLevel(tree, dataAnimation);
     const data = formatingDataAnimation(dataAnimation);
 
-    display_elements();
-
     generateEncoding(tree);
     table(await sortedKeys(freq), await sortedKeys(encodingTable));
-    generateEncodedString();
+    displayEncoded(generateEncodedString());
     setDataAnimation(data);
+
+    display_elements();
 };

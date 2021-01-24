@@ -32,7 +32,6 @@ const getDataAnimation = (tree) => {
         }
     }
 
-    console.log(rawNodes);
     return {
         rawEdges,
         rawNodes
