@@ -1,5 +1,8 @@
 const setDataAnimation = (param) => {
-  let { nodesProcessed, edgesProcessed } = param;
+  let {
+    nodesProcessed,
+    edgesProcessed
+  } = param;
   let nodes = new vis.DataSet();
   let edges = new vis.DataSet();
 
@@ -10,15 +13,26 @@ const setDataAnimation = (param) => {
   let container = document.getElementById('mynetwork');
 
   // provide the data in the vis format
-  let data = { nodes, edges };
+  let data = {
+    nodes,
+    edges
+  };
   let options = {
+    height: '100%',
+    width: '100%',
+    locale: 'en',
     nodes: {
-      fixed: false,
-      font: '12px arial black',
-      scaling: {
-        label: false
+      borderWidth: 1,
+      borderWidthSelected: 2,
+      chosen: true,
+      opacity: 1,
+      font: {
+        size: 25, // px
       },
-      shadow: true
+      fixed: {
+        x: true,
+        y: true
+      }
     },
     edges: {
       color: 'black',
@@ -51,7 +65,13 @@ const setDataAnimation = (param) => {
       selectConnectedEdges: true,
       tooltipDelay: 300,
       zoomSpeed: 1,
-    }
+    },/* 
+    configure: {
+      enabled: true,
+      filter: 'nodes',
+      container: undefined,
+      showButton: true
+    } */
   };
 
   var network = new vis.Network(container, data, options);
