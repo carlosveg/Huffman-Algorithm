@@ -65,13 +65,7 @@ const setDataAnimation = (param) => {
       selectConnectedEdges: true,
       tooltipDelay: 300,
       zoomSpeed: 1,
-    },/* 
-    configure: {
-      enabled: true,
-      filter: 'nodes',
-      container: undefined,
-      showButton: true
-    } */
+    },
   };
 
   var network = new vis.Network(container, data, options);
