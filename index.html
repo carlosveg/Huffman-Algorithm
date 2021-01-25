@@ -100,7 +100,8 @@
         <div class="text-center">
           <input class="input" id="input" type="text" placeholder="Ejemplo: Este es un texto de prueba.">
           <button class="btn btn-dark mt-1" id="btnRun">Go!</button>
-          <p class="warning_text display_none" id="validated_text">Texto con longitud 4-100</p>
+          <p class="warning_text display_none" id="validated_text">El texto ingresado debe ser al menos de longitud 4 y
+            a lo mas de longitud 100.</p>
         </div>
         <div class="display_none" id="display_data">
           <div class="container-table row row-cols-md-2">
@@ -111,9 +112,9 @@
                     <table class="table table-striped text-center">
                       <thead class="bg-primary thead-dark">
                         <tr>
-                          <th>Letter</th>
-                          <th>Frequency</th>
-                          <th>Code</th>
+                          <th>Caracter</th>
+                          <th>Frequencia</th>
+                          <th>Codigo</th>
                         </tr>
                       </thead>
                       <tbody class="table-secondary" id="tbody">
@@ -145,8 +146,8 @@
         </div>
       </section>
     </div>
-      <!-- Container to render the graph -->
-      <div class="container-graph bg-light display_none" id="mynetwork"></div>
+    <!-- Container to render the graph -->
+    <div class="container-graph bg-light display_none" id="mynetwork"></div>
     <!-- </div> -->
   </main>
 
