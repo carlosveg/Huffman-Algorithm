@@ -1,3 +1,13 @@
+/*
+    *******************************************************************************************************************
+    El archivo contendra los metodos propios de la libreria visjs asi como las configuraciones para generar la grafica.
+    *******************************************************************************************************************
+
+    Autores: Vazquez Villeda Juan Alberto, Vega Gloria Carlos Raymundo
+    Fecha: 24-01-2021
+    Version: 3.4
+*/
+
 const setDataAnimation = (param) => {
   let {
     nodesProcessed,

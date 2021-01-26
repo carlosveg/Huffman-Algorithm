@@ -1,3 +1,18 @@
+/*
+    ******************************************************************************************************************************************
+    El archivo contendra las funciones que se encargaran de dar formato a los datos para enviarlos a la biblioteca visjs y generar la grafica.
+    ******************************************************************************************************************************************
+
+    Autores: Vazquez Villeda Juan Alberto, Vega Gloria Carlos Raymundo
+    Fecha: 22-01-2021
+    Version: 2.3.1
+*/
+
+/*
+    RECIBE: Nodo raiz del arbol.
+    DEVUELVE: Un objeto con los nodos y aristas, aun sin procesar.
+    DESCRIPCION: Se realiza un recorrido de profundidad por el arbol para asociar un index y las etiquetas que contendra cada nodo; de igual forma se crea una referencia de las aristas con un formato de [origen, destino].
+*/
 const getDataAnimation = (tree) => {
     let rawNodes = [];
     let rawEdges = [];
@@ -38,7 +53,13 @@ const getDataAnimation = (tree) => {
     };
 };
 
+/* Varbiable global, arreglo que contendra el nivel de cada nodo */
 var levels = [];
+/*
+    RECIBE: Nodo, indice del nodo y el nivel del nodo en el arbol.
+    DEVUELVE: Void.
+    DESCRIPCION: De forma recursiva se le asocia el nivel al que pertenece cada nodo dentro del arbol.
+*/
 const getLevels = (node, index, level) => {
     if (node !== null) {
         if (node.index === index) levels.push(level);
@@ -47,6 +68,11 @@ const getLevels = (node, index, level) => {
     }
 };
 
+/*
+    RECIBE: Referencia al nodo raiz y un arreglo del cual obtendra los nodos.
+    DEVUELVE: Void.
+    DESCRIPCION: Dada la cantidad de nodos que contendra el arbol se asociaran niveles a cada nodo
+*/
 const setLevel = (tree, data) => {
     let {
         rawNodes
@@ -55,6 +81,11 @@ const setLevel = (tree, data) => {
     for (let i = 0; i < rawNodes.length; i++) getLevels(tree, i, 0);
 };
 
+/*
+    RECIBE: Objeto con nodos y aristas sin procesar.
+    DEVUELVE: Objeto con nodos y aristas procesados
+    DESCRIPCION: Se le asocia a cada nodo un id, etiqueta y nivel, de igual forma se da formato a las aristas.
+*/
 const formatingDataAnimation = (dataAnimation) => {
     let {
         rawEdges,

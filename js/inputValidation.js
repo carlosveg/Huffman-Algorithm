@@ -1,10 +1,20 @@
+/*
+    ******************************************************************
+    El archivo contendra la validacion de la caja de texto y el boton.
+    ******************************************************************
+
+    Autores: Vazquez Villeda Juan Alberto, Vega Gloria Carlos Raymundo
+    Fecha: 24-01-2021
+    Version: 1.2
+*/
+
 const input = document.getElementById("input");
 
 const regex = {
     chain: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}@~\(\)\[\];:''"",<>ñÑ\\-\s]{4,100}$/
 };
 
-const validarInput = (e) => {
+const validateInput = (e) => {
     if (regex.chain.test(e.target.value)) {
         document.getElementById('input').classList.remove('invalid_input')
         document.getElementById('input').classList.add('valid_input');
@@ -18,5 +28,5 @@ const validarInput = (e) => {
     }
 };
 
-input.addEventListener('keyup', validarInput);
-input.addEventListener('blur', validarInput);
+input.addEventListener('keyup', validateInput);
+input.addEventListener('blur', validateInput);

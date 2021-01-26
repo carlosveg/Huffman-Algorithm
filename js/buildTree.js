@@ -1,3 +1,18 @@
+/*
+    *********************************************************************    
+    El archivo contendra las funciones pertinentes para generar el arbol.
+    *********************************************************************
+    
+    Autores: Vazquez Villeda Juan Alberto, Vega Gloria Carlos Raymundo
+    Fecha: 21-01-2021
+    Version: 1.8
+*/
+
+/*
+	RECIBE: Un objeto desordenado.
+    DEVUELVE: Un objeto ordenado por frecuencias de caracteres.
+    DESCRIPCION: Transforma el objeto en un arreglo de arreglos, mismo que sera ordenado en base a las frecuencias de cada caracter.
+*/
 const sorted = (objectFrecuencies) => {
     let array = Object.entries(objectFrecuencies);
     let aux;
@@ -15,6 +30,11 @@ const sorted = (objectFrecuencies) => {
     return Object.fromEntries(array);
 };
 
+/*
+    RECIBE: Un objeto desordenado.
+    DEVUELVE: Un objeto ordenado lexicograficamente por los caracteres.
+    DESCRIPCION: Transforma el objeto en un arreglo de arreglos, mismo que sera ordenado lexicograficamente por los caracteres.
+*/
 const sortedKeys = (objectFrecuencies) => {
     let array = Object.entries(objectFrecuencies);
     let aux;
@@ -32,6 +52,11 @@ const sortedKeys = (objectFrecuencies) => {
     return Object.fromEntries(array);
 };
 
+/*
+    RECIBE: Un objeto que contiene el caracter asociado a su frecuencia de aparicion.
+    DEVUELVE: Una lista de nodos.
+    DESCRIPCION: Genera una lista de nodos en el cual cada nodo contendra el caracter y su frecuencia de aparicion.
+*/
 const generateList = (objectFrecuencies) => {
     let node_list = [];
     let sortedList = sorted(objectFrecuencies);
@@ -48,9 +73,14 @@ const generateList = (objectFrecuencies) => {
     return node_list;
 };
 
+/*
+    RECIBE: Una lista de nodos.
+    DEVUELVE: El nodo raiz del arbol con la referencia a los demas nodos.
+    DESCRIPCION: En base al algoritmo de Huffman se usan los 2 nodos de menos frecuencia y se generan los nuevos nodos para asi construir el arbol.
+*/
 const generateHuffmanTree = (nodeList) => {
     while (nodeList.length > 1) {
-        arrayAux = nodeList.splice(0, 2); // We save the two deleted elements (the two minor ones).
+        arrayAux = nodeList.splice(0, 2); // Se hace pop de los 2 primeros elementos (los dos menores).
 
         let node = new Node();
         node.frequency = arrayAux[0].frequency + arrayAux[1].frequency;
@@ -58,7 +88,7 @@ const generateHuffmanTree = (nodeList) => {
         node.right = arrayAux[1];
         nodeList.splice(0, 0, node);
 
-        nodeList = nodeList.sort((a, b) => a.frequency - b.frequency);
+        nodeList = nodeList.sort((a, b) => a.frequency - b.frequency); // Reordenamos la lista de nodos para siempre ir tomando los de menor frecuencia.
     }
 
     return nodeList.pop();

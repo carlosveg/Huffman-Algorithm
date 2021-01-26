@@ -1,6 +1,16 @@
+/*
+    *************************************************************************************
+    El archivo contendra el eventListener del boton y metodos de la libreria ScrollReveal
+    *************************************************************************************
+
+    Autores: Vazquez Villeda Juan Alberto, Vega Gloria Carlos Raymundo
+    Fecha: 24-01-2021
+    Version: 1.3
+*/
+
 const btnRun = document.getElementById('btnRun');
 
-/* In this eventListener just execute the function that will trigger the creation of the frequency table */
+/* Creamos el eventListener que disparara el boton al hacerle click */
 const lettersFrequency = btnRun.addEventListener('click', createAll);
 
 ScrollReveal().reveal('.showcase', { delay: 100 });
